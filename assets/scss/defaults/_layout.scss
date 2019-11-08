@@ -1,0 +1,21 @@
+header {
+    background: $black;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 80px;
+    border-right: 1px solid rgba(white, 0.21);
+}
+
+#page-content {
+    background: $black;
+    margin-left: 80px;
+    width: calc(100% - 80px);
+
+    padding: 0 40px 60px 40px;
+
+    #logo {
+        height: 34px;
+        margin-top: 20px;
+    }
+}
