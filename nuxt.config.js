@@ -44,13 +44,22 @@ export default {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/apollo',
   ],
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+  },
+
+  apollo: {  
+    clientConfigs: {
+      default: {
+        httpEndpoint: 'https://api.graph.cool/simple/v1/ciyz901en4j590185wkmexyex'
+      }
+    }
   },
   /*
   ** Build configuration
