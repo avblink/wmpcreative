@@ -57,7 +57,7 @@ export default {
   apollo: {  
     clientConfigs: {
       default: {
-        httpEndpoint: 'https://api.graph.cool/simple/v1/ciyz901en4j590185wkmexyex'
+        httpEndpoint: 'https://wmpcreative.com/graphql'
       }
     }
   },

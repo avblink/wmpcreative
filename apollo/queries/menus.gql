@@ -1,0 +1,33 @@
+query {
+  mainMenu: menus(where: { slug: "main-menu" }) {
+    edges {
+      node {
+        name
+        id
+        menuId
+        slug
+        count
+        menuItems {
+          edges {
+            node {
+              ...menuItemFields
+              childItems {
+                edges {
+                  node {
+                    ...menuItemFields
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+fragment menuItemFields on MenuItem {
+  id
+  label
+  url
+}

@@ -1,6 +1,0 @@
-query allUsers($count: Int = 3) {  
-  allUsers(first: $count) {
-    id
-    name
-  }
-}
