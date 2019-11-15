@@ -1,11 +1,20 @@
 <template>
-  <div>
+  <div id="layout">
+
     <header :class="{'menu-is-open': menuIsOpen}">
+
+      <div id="logo" class="logo-left text-light">
+        <a href="//wmpcreative.com/">
+          <img id="light-logo" src="//wmpcreative.com/wp-content/uploads/2017/11/wmp-white.png" alt="wmp-white">
+        </a>
+      </div>
+
       <div class="menu-actions">
         <div class="menu-toggle" @click="toggleMenu()">
           <span class="hamburger" />
         </div>
       </div>
+
       <div id="menu-inner" class="no-widget">
         <nav id="main-nav" class="underline fade">
           <ul id="primary">
@@ -17,18 +26,23 @@
                   <a :href="subItem.node.url">{{ subItem.node.label }}</a>
                 </li>
               </ul>
+
             </li>
           </ul>
         </nav>
       </div>
+
+      <div id="header-widget" class="custom">
+        <div class="widget">
+          © <a href="//www.wmpcreative.com">WMP Creative</a> - Founded 1984  - <a href="Privacy Policy">Privacy Policy</a>                </div>
+      </div>
+
     </header>
 
     <div id="page-content">
-      <div id="logo">
-        <img src="//wmpcreative.com/wp-content/uploads/2017/11/wmp-white.png">
-      </div>
       <nuxt />
     </div>
+
   </div>
 </template>
 

@@ -1,3 +1,7 @@
+#layout {
+    overflow: hidden;
+}
+
 header {
     position: fixed;
     top: 0;
@@ -91,17 +95,39 @@ header {
 
         }
     }
+
+    #header-widget.custom {
+        transform: rotate(-90deg);
+        transform-origin: 0 0;
+        color: rgba($white, 0.5);
+        font-size: 0.85em;
+        width: 350px;
+        line-height: 40px;
+
+        position: absolute;
+        left: 20px;
+        bottom: -10px;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        z-index: 1502;
+    }
 }
 
 #page-content {
-    background: $black;
-    margin-left: 80px;
+    position: relative;
     width: calc(100% - 80px);
+    margin-left: 80px;
+    overflow: hidden;
 
-    padding: 0 40px 60px 40px;
+    background: $black;
 
-    #logo {
-        height: 34px;
-        margin-top: 20px;
+    transition: left 849ms cubic-bezier(0.740, 0.215, 0.125, 1.020), right 849ms cubic-bezier(0.740, 0.215, 0.125, 1.020);
+    transition-delay: 0.06s;
+    left: 0;
+}
+
+header.menu-is-open {
+    &~#page-content {
+        left: 300px;
     }
 }
