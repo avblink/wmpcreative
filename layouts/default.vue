@@ -32,7 +32,7 @@
         </nav>
       </div>
 
-      <div id="header-widget" class="custom">
+      <div id="header-widget">
         <div class="widget">
           © <a href="//www.wmpcreative.com">WMP Creative</a> - Founded 1984  - <a href="Privacy Policy">Privacy Policy</a>                </div>
       </div>

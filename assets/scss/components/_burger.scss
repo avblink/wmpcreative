@@ -1,10 +1,12 @@
 header {
     .menu-actions {
-        position: relative;
-        z-index: 10;
+        position: fixed;
+        z-index: 1503;
         transition: all 0.4s ease;
         margin-top: 30px;
         width: 80px;
+        left: 0;
+        top: 0;
 
         .menu-toggle {
             width: 30px;
@@ -74,6 +76,16 @@ header.menu-is-open {
         span.hamburger:after {
             transform: rotate(-135deg);
             margin-top: 0px;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    header {
+        .menu-actions {
+            width: 30px;
+            margin: 15px 0 0 0;
+            left: calc(100% - 60px);
         }
     }
 }
