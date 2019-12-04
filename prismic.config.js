@@ -2,28 +2,28 @@
 //   apiEndpoint: "https://wmpcreative.cdn.prismic.io/api/v2"
 // };
 
-import Prismic from "prismic-javascript";
-import PrismicDOM from "prismic-dom";
+import Prismic from 'prismic-javascript';
+import PrismicDOM from 'prismic-dom';
 
 const config = {
-  baseUrl: "https://wmpcreative.cdn.prismic.io/api/v2"
+  baseUrl: 'https://wmpcreative.cdn.prismic.io/api/v2'
   //   access_token: '<ACCESS_TOKEN>'
 };
 
-export const initApi = req => {
+export const initApi = (req) => {
   return Prismic.getApi(config.baseUrl, {
     // accessToken: config.access_token,
-    req: req
+    req
   });
 };
 
-export const linkResolver = doc => {
-  if (doc.type === "blog_post") {
+export const linkResolver = (doc) => {
+  if (doc.type === 'blog_post') {
     return `/blog/${doc.uid}`;
   }
 
-  if (doc.uid === "home") {
-    return "/";
+  if (doc.uid === 'home') {
+    return '/';
   }
 
   return `/${doc.uid}`;
@@ -31,13 +31,12 @@ export const linkResolver = doc => {
 
 export const generatePageData = (documentType, data) => {
   switch (documentType) {
-    case "homepage":
+    case 'homepage':
       const sections = {};
 
-      data.body.map(slice => {
-        console.log(slice.slice_type);
+      data.body.map((slice) => {
         switch (slice.slice_type) {
-          case "page_hero":
+          case 'page_hero':
             sections[slice.slice_type] = {
               title: PrismicDOM.RichText.asText(slice.primary.title),
               subTitle: PrismicDOM.RichText.asText(slice.primary.subtitle),
@@ -47,15 +46,15 @@ export const generatePageData = (documentType, data) => {
               gallery: slice.primary.image_gallery
             };
             break;
-          case "text":
+          case 'text':
             sections[slice.slice_type] = {
               text: PrismicDOM.RichText.asHtml(slice.primary.text)
             };
             break;
-          case "image_gallery":
-            let gallery = []; 
+          case 'image_gallery':
+            const gallery = [];
 
-            slice.items.map(item => {
+            slice.items.map((item) => {
               gallery.push({
                 image: item.gallery_image,
                 link: item.link,

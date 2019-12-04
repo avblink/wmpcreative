@@ -1,8 +1,6 @@
 <template>
   <div id="layout">
-
     <header :class="{'menu-is-open': menuIsOpen}">
-
       <div id="logo" class="logo-left text-light">
         <a href="//wmpcreative.com/">
           <img id="light-logo" src="//wmpcreative.com/wp-content/uploads/2017/11/wmp-white.png" alt="wmp-white">
@@ -26,7 +24,6 @@
                   <a :href="subItem.node.url">{{ subItem.node.label }}</a>
                 </li>
               </ul>
-
             </li>
           </ul>
         </nav>
@@ -34,25 +31,24 @@
 
       <div id="header-widget">
         <div class="widget">
-          © <a href="//www.wmpcreative.com">WMP Creative</a> - Founded 1984  - <a href="Privacy Policy">Privacy Policy</a>                </div>
+          © <a href="//www.wmpcreative.com">WMP Creative</a> - Founded 1984  - <a href="Privacy Policy">Privacy Policy</a>
+        </div>
       </div>
-
     </header>
 
     <div id="page-content">
       <nuxt />
     </div>
-
   </div>
 </template>
 
 <script>
-import menusQuery from '~/apollo/queries/menus'
+import menusQuery from '~/apollo/queries/menus';
 export default {
   data () {
     return {
       menuIsOpen: false
-    }
+    };
   },
   apollo: {
     mainMenu: {
@@ -62,20 +58,20 @@ export default {
   },
   methods: {
     toggleMenu () {
-      this.menuIsOpen = !this.menuIsOpen
+      this.menuIsOpen = !this.menuIsOpen;
     },
     toggleNav (event) {
-      const $link = window.jQuery(event.currentTarget)
-      const $sibling = $link.siblings('ul:first')
-      const $parent = $link.parent('li')
+      const $link = window.jQuery(event.currentTarget);
+      const $sibling = $link.siblings('ul:first');
+      const $parent = $link.parent('li');
 
       if ($sibling.length) {
-        event.preventDefault()
-        $sibling.slideDown(400)
+        event.preventDefault();
+        $sibling.slideDown(400);
 
-        $parent.siblings('li').children('ul').slideUp(400)
+        $parent.siblings('li').children('ul').slideUp(400);
       }
     }
   }
-}
+};
 </script>

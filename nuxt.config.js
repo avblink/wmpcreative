@@ -1,5 +1,5 @@
-const Prismic = require('prismic-javascript')
-import { initApi } from './prismic.config'
+import Prismic from 'prismic-javascript';
+import { initApi } from './prismic.config';
 
 export default {
   mode: 'universal',
@@ -15,7 +15,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href:'https://fonts.googleapis.com/css?family=Poppins:300,400&display=swap' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Poppins:300,400&display=swap' }
     ],
     script: [
       { src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js' }
@@ -29,7 +29,7 @@ export default {
   ** Global CSS
   */
   css: [
-    '@/assets/scss/styles.scss',
+    '@/assets/scss/styles.scss'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -49,7 +49,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/apollo',
+    '@nuxtjs/apollo'
   ],
   /*
   ** Axios module configuration
@@ -58,7 +58,7 @@ export default {
   axios: {
   },
 
-  apollo: {  
+  apollo: {
     clientConfigs: {
       default: {
         httpEndpoint: 'https://wmpcreative.com/graphql'
@@ -78,23 +78,23 @@ export default {
 
   // https://nebulab.it/blog/create-fast-nuxtjs-website-prismic/
   generate: {
-    routes: function () {
-      const homepage = initApi().then(api => {
+    routes () {
+      const homepage = initApi().then((api) => {
         return api
-          .query(Prismic.Predicates.at('document.type', 'page', {uid: "home"}))
-          .then(response => {
-            return response.results.map(payload => {
+          .query(Prismic.Predicates.at('document.type', 'page', { uid: 'home' }))
+          .then((response) => {
+            return response.results.map((payload) => {
               return {
                 route: '/',
                 payload
-              }
-            })
-          })
-      })
+              };
+            });
+          });
+      });
 
-      return Promise.all([homepage, ]).then(values => {
-        return [...values[0], ]
-      })
+      return Promise.all([ homepage ]).then((values) => {
+        return [ ...values[0] ];
+      });
     }
   }
-}
+};
