@@ -1,3 +1,5 @@
+const Prismic = require('prismic-javascript')
+import { initApi } from './prismic.config'
 
 export default {
   mode: 'universal',
@@ -71,6 +73,28 @@ export default {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
+    }
+  },
+
+  // https://nebulab.it/blog/create-fast-nuxtjs-website-prismic/
+  generate: {
+    routes: function () {
+      const homepage = initApi().then(api => {
+        return api
+          .query(Prismic.Predicates.at('document.type', 'page', {uid: "home"}))
+          .then(response => {
+            return response.results.map(payload => {
+              return {
+                route: '/',
+                payload
+              }
+            })
+          })
+      })
+
+      return Promise.all([homepage, ]).then(values => {
+        return [...values[0], ]
+      })
     }
   }
 }
