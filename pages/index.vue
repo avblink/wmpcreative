@@ -23,11 +23,11 @@
     </section>
 
     <section class="desc">
-      <div class="wrapper-small" v-html="html.sections.text.text" />
+      <div class="wrapper-small" v-html="html.sections.text[0].text" />
     </section>
     <section class="gallery">
       <a
-        v-for="item in html.sections.image_gallery"
+        v-for="item in html.sections.image_gallery[0]"
         :key="item.id"
         :href="item.link.url"
         class="item"
@@ -36,6 +36,24 @@
         <h3 class="title">{{ item.linkTitle }}</h3>
       </a>
     </section>
+
+    <div class="center">
+      <a href="/work" class="button white view-all">View All</a>
+    </div>
+
+    <section class="brands center">
+      <h3 v-html="html.sections.text[1].text" />
+      <img
+        v-for="item in html.sections.image_gallery[1]"
+        :key="item.id"
+        :src="item.image.url"
+        class="item"
+      />
+    </section>
+
+    <div class="center">
+      <a href="/contact" class="button white contact">Get in touch</a>
+    </div>
   </div>
 </template>
 
@@ -57,6 +75,7 @@ export default {
             Prismic.Predicates.at('document.type', 'page', { uid: 'home' })
           )
           .then(response => {
+            console.log(response);
             return generatePageData('homepage', response.results[0].data);
           });
       });

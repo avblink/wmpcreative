@@ -47,9 +47,12 @@ export const generatePageData = (documentType, data) => {
             };
             break;
           case 'text':
-            sections[slice.slice_type] = {
+            if (!{}.hasOwnProperty.call(sections, slice.slice_type)) {
+              sections[slice.slice_type] = [];
+            }
+            sections[slice.slice_type].push({
               text: PrismicDOM.RichText.asHtml(slice.primary.text)
-            };
+            });
             break;
           case 'image_gallery': {
             const gallery = [];
@@ -62,7 +65,10 @@ export const generatePageData = (documentType, data) => {
               });
             });
 
-            sections[slice.slice_type] = gallery;
+            if (!{}.hasOwnProperty.call(sections, slice.slice_type)) {
+              sections[slice.slice_type] = [];
+            }
+            sections[slice.slice_type].push(gallery);
 
             break;
           }
