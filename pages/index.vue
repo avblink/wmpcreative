@@ -11,7 +11,7 @@
           allowfullscreen
         />
         <div ref="videoBackground" class="video-background">
-          <img :src="html.sections.page_hero.videoBackground.url">
+          <img :src="html.sections.page_hero.videoBackground.url" />
         </div>
         <div class="overlay" />
       </div>
@@ -32,7 +32,7 @@
         :href="item.link.url"
         class="item"
       >
-        <img :src="item.image.url" :alt="item.linkTitle">
+        <img :src="item.image.url" :alt="item.linkTitle" />
         <h3 class="title">{{ item.linkTitle }}</h3>
       </a>
     </section>
@@ -45,25 +45,18 @@ import Prismic from 'prismic-javascript';
 import { initApi, generatePageData } from '@/prismic.config';
 
 export default {
-  head () {
-    return {
-      bodyAttrs: {
-        class: ['page-home'].join(' ')
-      }
-    };
-  },
-  async asyncData (context) {
+  async asyncData(context) {
     let html;
 
     if (context.payload) {
       html = generatePageData('homepage', context.payload.data);
     } else {
-      html = await initApi().then((api) => {
+      html = await initApi().then(api => {
         return api
           .query(
             Prismic.Predicates.at('document.type', 'page', { uid: 'home' })
           )
-          .then((response) => {
+          .then(response => {
             return generatePageData('homepage', response.results[0].data);
           });
       });
@@ -73,11 +66,11 @@ export default {
       html
     };
   },
-  mounted () {
+  mounted() {
     this.initVimeoPlayer();
   },
   methods: {
-    initVimeoPlayer () {
+    initVimeoPlayer() {
       // https://github.com/vimeo/player.js#onevent-string-callback-function-void
       const iframe = this.$refs.heroVideo;
       const player = new Player(iframe);
@@ -91,10 +84,17 @@ export default {
         // console.log($b);
       });
 
-      player.getVideoId().then(function (id) {
-        // console.log('video id:', id);
+      player.getVideoId().then(function(id) {
+        console.log('video id:', id);
       });
     }
+  },
+  head() {
+    return {
+      bodyAttrs: {
+        class: ['page-home'].join(' ')
+      }
+    };
   }
 };
 </script>

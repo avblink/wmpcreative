@@ -10,14 +10,14 @@ const config = {
   //   access_token: '<ACCESS_TOKEN>'
 };
 
-export const initApi = (req) => {
+export const initApi = req => {
   return Prismic.getApi(config.baseUrl, {
     // accessToken: config.access_token,
     req
   });
 };
 
-export const linkResolver = (doc) => {
+export const linkResolver = doc => {
   if (doc.type === 'blog_post') {
     return `/blog/${doc.uid}`;
   }
@@ -31,10 +31,10 @@ export const linkResolver = (doc) => {
 
 export const generatePageData = (documentType, data) => {
   switch (documentType) {
-    case 'homepage':
+    case 'homepage': {
       const sections = {};
 
-      data.body.map((slice) => {
+      data.body.map(slice => {
         switch (slice.slice_type) {
           case 'page_hero':
             sections[slice.slice_type] = {
@@ -51,10 +51,10 @@ export const generatePageData = (documentType, data) => {
               text: PrismicDOM.RichText.asHtml(slice.primary.text)
             };
             break;
-          case 'image_gallery':
+          case 'image_gallery': {
             const gallery = [];
 
-            slice.items.map((item) => {
+            slice.items.map(item => {
               gallery.push({
                 image: item.gallery_image,
                 link: item.link,
@@ -65,11 +65,13 @@ export const generatePageData = (documentType, data) => {
             sections[slice.slice_type] = gallery;
 
             break;
+          }
         }
       });
 
       return {
         sections
       };
+    }
   }
 };

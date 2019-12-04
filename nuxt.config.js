@@ -4,59 +4,65 @@ import { initApi } from './prismic.config';
 export default {
   mode: 'universal',
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   head: {
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      {
+        hid: 'description',
+        name: 'description',
+        content: process.env.npm_package_description || ''
+      }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Poppins:300,400&display=swap' }
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css?family=Poppins:300,400&display=swap'
+      }
     ],
     script: [
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js' }
+      {
+        src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'
+      }
     ]
   },
   /*
-  ** Customize the progress-bar color
-  */
+   ** Customize the progress-bar color
+   */
   loading: { color: '#fff' },
   /*
-  ** Global CSS
-  */
-  css: [
-    '@/assets/scss/styles.scss'
-  ],
+   ** Global CSS
+   */
+  css: ['@/assets/scss/styles.scss'],
   /*
-  ** Plugins to load before mounting the App
-  */
-  plugins: [
-  ],
+   ** Plugins to load before mounting the App
+   */
+  plugins: [],
   /*
-  ** Nuxt.js dev-modules
-  */
+   ** Nuxt.js dev-modules
+   */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module'
   ],
   /*
-  ** Nuxt.js modules
-  */
+   ** Nuxt.js modules
+   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/apollo'
   ],
   /*
-  ** Axios module configuration
-  ** See https://axios.nuxtjs.org/options
-  */
-  axios: {
-  },
+   ** Axios module configuration
+   ** See https://axios.nuxtjs.org/options
+   */
+  axios: {},
 
   apollo: {
     clientConfigs: {
@@ -66,24 +72,26 @@ export default {
     }
   },
   /*
-  ** Build configuration
-  */
+   ** Build configuration
+   */
   build: {
     /*
-    ** You can extend webpack config here
-    */
-    extend (config, ctx) {
-    }
+     ** You can extend webpack config here
+     */
+    // eslint-disable-next-line no-unused-vars
+    extend(config, ctx) {}
   },
 
   // https://nebulab.it/blog/create-fast-nuxtjs-website-prismic/
   generate: {
-    routes () {
-      const homepage = initApi().then((api) => {
+    routes() {
+      const homepage = initApi().then(api => {
         return api
-          .query(Prismic.Predicates.at('document.type', 'page', { uid: 'home' }))
-          .then((response) => {
-            return response.results.map((payload) => {
+          .query(
+            Prismic.Predicates.at('document.type', 'page', { uid: 'home' })
+          )
+          .then(response => {
+            return response.results.map(payload => {
               return {
                 route: '/',
                 payload
@@ -92,8 +100,8 @@ export default {
           });
       });
 
-      return Promise.all([ homepage ]).then((values) => {
-        return [ ...values[0] ];
+      return Promise.all([homepage]).then(values => {
+        return [...values[0]];
       });
     }
   }
