@@ -22,7 +22,6 @@
     "nuxt": "^2.0.0",
     "prismic-dom": "^2.1.0",
     "prismic-javascript": "^2.1.1",
-    "push-dir": "^0.4.1",
     "sass-loader": "^8.0.0"
   },
   "devDependencies": {
@@ -37,6 +36,7 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-vue": "^6.0.1",
     "nuxt-compress": "^1.0.2",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "push-dir": "^0.4.1"
   }
 }
