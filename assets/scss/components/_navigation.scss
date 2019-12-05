@@ -10,6 +10,7 @@
 
     transition: all 0.3s ease 0.3s;
     opacity: 0;
+    visibility: hidden;
     overflow-x: hidden;
 
     ul:not(.sub-menu)>li {
@@ -92,6 +93,7 @@ header.menu-is-open {
     #menu-inner {
         transition-delay: 0.2s;
         opacity: 1;
+        visibility: visible;
         overflow-y: auto;
 
         nav>ul>li {
