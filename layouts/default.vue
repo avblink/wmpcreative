@@ -3,11 +3,7 @@
     <header :class="{ 'menu-is-open': menuIsOpen }">
       <div id="logo" class="logo-left text-light">
         <a href="//wmpcreative.com/">
-          <img
-            id="light-logo"
-            src="//wmpcreative.com/wp-content/uploads/2017/11/wmp-white.png"
-            alt="wmp-white"
-          />
+          <img id="light-logo" src="~static/img/logo.png" alt="wmp logo" />
         </a>
       </div>
 
