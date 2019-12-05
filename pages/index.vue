@@ -75,7 +75,6 @@ export default {
             Prismic.Predicates.at('document.type', 'page', { uid: 'home' })
           )
           .then(response => {
-            console.log(response);
             return generatePageData('homepage', response.results[0].data);
           });
       });
