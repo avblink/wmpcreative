@@ -16,21 +16,14 @@
       <div id="menu-inner" class="no-widget">
         <nav id="main-nav" class="underline fade">
           <ul id="primary">
-            <li
-              v-for="item in mainMenu.edges[0].node.menuItems.edges"
-              :key="item.node.id"
-              class="menu-item"
-            >
-              <a :href="item.node.url" @click="toggleNav($event)">{{
-                item.node.label
-              }}</a>
+            <li v-for="item in mainMenu" :key="item.url" class="menu-item">
+              <a :href="item.url" @click="toggleNav($event)">
+                {{ item.label }}
+              </a>
 
-              <ul v-if="item.node.childItems.edges.length > 0" class="sub-menu">
-                <li
-                  v-for="subItem in item.node.childItems.edges"
-                  :key="subItem.node.id"
-                >
-                  <a :href="subItem.node.url">{{ subItem.node.label }}</a>
+              <ul v-if="item.children" class="sub-menu">
+                <li v-for="subItem in item.children" :key="subItem.url">
+                  <a :href="subItem.url">{{ subItem.label }}</a>
                 </li>
               </ul>
             </li>
@@ -53,19 +46,21 @@
 </template>
 
 <script>
-import menusQuery from '~/apollo/queries/menus';
+// import menusQuery from '~/apollo/queries/menus';
+import mainMenu from '~/data/menu.json';
 export default {
   data() {
     return {
-      menuIsOpen: false
+      menuIsOpen: false,
+      mainMenu
     };
   },
-  apollo: {
-    mainMenu: {
-      prefetch: true,
-      query: menusQuery
-    }
-  },
+  // apollo: {
+  //   mainMenu: {
+  //     prefetch: true,
+  //     query: menusQuery
+  //   }
+  // },
   methods: {
     toggleMenu() {
       this.menuIsOpen = !this.menuIsOpen;

@@ -1,0 +1,49 @@
+[
+    {
+        "label": "Work",
+        "url": "/work"
+    },
+    {
+        "label": "Services",
+        "url": "#",
+        "children": [
+            {
+                "label": "Design",
+                "url": "/design"
+            },
+            {
+                "label": "Digital",
+                "url": "/digital"
+            },
+            {
+                "label": "Events",
+                "url": "/events"
+            },
+            {
+                "label": "Exhibitions",
+                "url": "/exhibitions"
+            },
+            {
+                "label": "Film",
+                "url": "/film"
+            },
+            {
+                "label": "Product Design",
+                "url": "/productdesign"
+            },
+            {
+                "label": "Sports",
+                "url": "/sports"
+            }
+        ]
+    },
+    {
+        "label": "About",
+        "url":"/overview"
+    }
+    ,
+    {
+        "label": "Contact",
+        "url":"/contact"
+    }
+]
