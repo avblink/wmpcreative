@@ -1,18 +1,10 @@
 import Prismic from 'prismic-javascript';
 import { initApi } from './prismic.config';
 
-// only add `router.base = '/<repository-name>/'` if `DEPLOY_ENV` is `GH_PAGES`
-const routerBase =
-  process.env.DEPLOY_ENV === 'GH_PAGES'
-    ? {
-        router: {
-          base: '/wmpcreative/'
-        }
-      }
-    : {};
-
 export default {
-  ...routerBase,
+  router: {
+    base: process.env.DEPLOY_ENV === 'GH_PAGES' ? '/wmpcreative/' : '/'
+  },
   mode: 'universal',
   /*
    ** Headers of the page
