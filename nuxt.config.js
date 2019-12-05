@@ -62,7 +62,8 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/apollo'
+    '@nuxtjs/apollo',
+    'nuxt-compress'
   ],
   /*
    ** Axios module configuration
