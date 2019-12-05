@@ -4,6 +4,7 @@
       <div class="vimeo-wrapper">
         <iframe
           ref="heroVideo"
+          title="wmp showreel"
           src="https://player.vimeo.com/video/252855772?background=1&autoplay=1&loop=1&byline=0&title=0"
           frameborder="0"
           webkitallowfullscreen
@@ -11,7 +12,10 @@
           allowfullscreen
         />
         <div ref="videoBackground" class="video-background">
-          <img :src="html.sections.page_hero.videoBackground.url" />
+          <img
+            :src="html.sections.page_hero.videoBackground.url"
+            alt="wmp showreel background"
+          />
         </div>
         <div class="overlay" />
       </div>
@@ -48,6 +52,7 @@
         :key="item.id"
         :src="item.image.url"
         class="item"
+        alt="brands"
       />
     </section>
 
