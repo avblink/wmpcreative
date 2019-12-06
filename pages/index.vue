@@ -103,12 +103,12 @@ export default {
 
       player.ready().then(() => {
         // console.log('video ready');
-        // const $b = window.jQuery(this.$refs.videoBackground).fadeOut();
+        window.jQuery(this.$refs.videoBackground).fadeOut();
         // console.log($b);
       });
 
       player.getVideoId().then(function(id) {
-        console.log('video id:', id);
+        // console.log('video id:', id);
       });
     }
   },
