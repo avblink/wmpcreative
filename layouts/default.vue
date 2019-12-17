@@ -2,7 +2,7 @@
   <div id="layout">
     <header :class="{ 'menu-is-open': menuIsOpen }">
       <div id="logo" class="logo-left text-light">
-        <a href="//wmpcreative.com/">
+        <a href="/">
           <img id="light-logo" src="~static/img/logo.png" alt="wmp logo" />
         </a>
       </div>
