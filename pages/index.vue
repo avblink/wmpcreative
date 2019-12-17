@@ -26,7 +26,7 @@
       </div>
     </section>
 
-    <section class="desc">
+    <section class="desc do-anim">
       <div class="wrapper-small" v-html="html.sections.text[0].text" />
     </section>
     <section class="gallery">
@@ -66,7 +66,6 @@
 import Player from '@vimeo/player';
 import Prismic from 'prismic-javascript';
 import { initApi, generatePageData } from '@/prismic.config';
-import $ from 'jquery';
 
 export default {
   async asyncData(context) {
@@ -92,6 +91,10 @@ export default {
   },
   mounted() {
     this.initVimeoPlayer();
+
+    $(window).on('scroll', () => {
+      this.animateOnScroll();
+    });
   },
   methods: {
     initVimeoPlayer() {
@@ -111,6 +114,26 @@ export default {
       // player.getVideoId().then(function(id) {
       // console.log('video id:', id);
       // });
+    },
+    animateOnScroll() {
+      if ($("[class*='do-anim']").length > 0) {
+        $("[class*='do-anim']")
+          .not('.animated')
+          .filter(function(i, d) {
+            return $(d).visible(true);
+          })
+          .each(function(i) {
+            var thisItem = $(this);
+            var delayMulti = 200;
+            if (thisItem.hasClass('do-anim-modern')) {
+              delayMulti = 100;
+            }
+            var delay = i * delayMulti + 100; // + 150 is to add a small delay
+            thisItem.delay(delay).queue(function() {
+              thisItem.addClass('animated');
+            });
+          });
+      }
     }
   },
   head() {

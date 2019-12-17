@@ -5578,6 +5578,10 @@ jest-worker@^24.9.0:
     merge-stream "^2.0.0"
     supports-color "^6.1.0"
 
+jquery-visible@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/jquery-visible/-/jquery-visible-1.2.0.tgz#4839cac492f2e7f705fd06b1cde202b5da97c1e9"
+
 jquery@^3.4.1:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.4.1.tgz#714f1f8d9dde4bdfa55764ba37ef214630d80ef2"

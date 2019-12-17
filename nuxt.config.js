@@ -1,5 +1,6 @@
 import Prismic from 'prismic-javascript';
 import { initApi } from './prismic.config';
+import webpack from 'webpack';
 
 export default {
   router: {
@@ -44,7 +45,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~plugins/jquery.client.js'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -81,6 +82,12 @@ export default {
     /*
      ** You can extend webpack config here
      */
+    plugins: [
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery'
+      })
+    ],
     // eslint-disable-next-line no-unused-vars
     extend(config, ctx) {}
   },
