@@ -34,7 +34,7 @@
         v-for="item in html.sections.image_gallery[0]"
         :key="item.id"
         :href="item.link.url"
-        class="item"
+        class="item do-anim"
       >
         <img :src="item.image.url" :alt="item.linkTitle" />
         <h3 class="title">{{ item.linkTitle }}</h3>
@@ -46,12 +46,12 @@
     </div>
 
     <section class="brands center">
-      <h3 v-html="html.sections.text[1].text" />
+      <h3 class="do-anim" v-html="html.sections.text[1].text" />
       <img
         v-for="item in html.sections.image_gallery[1]"
         :key="item.id"
         :src="item.image.url"
-        class="item"
+        class="item do-anim"
         alt="brands"
       />
     </section>
