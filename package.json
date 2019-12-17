@@ -17,7 +17,6 @@
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
     "@nuxtjs/apollo": "^4.0.0-rc17",
     "@nuxtjs/axios": "^5.3.6",
-    "@vimeo/player": "^2.10.0",
     "graphql": "^14.5.8",
     "jquery": "^3.4.1",
     "jquery-visible": "^1.2.0",
@@ -26,7 +25,8 @@
     "nuxt-fontawesome": "^0.4.0",
     "prismic-dom": "^2.1.0",
     "prismic-javascript": "^2.1.1",
-    "sass-loader": "^8.0.0"
+    "sass-loader": "^8.0.0",
+    "vue-vimeo-player": "^0.0.10"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^1.0.1",

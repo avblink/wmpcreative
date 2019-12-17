@@ -2,15 +2,21 @@
   <div class="content-wrapper">
     <section class="hero">
       <div class="vimeo-wrapper">
-        <iframe
-          ref="heroVideo"
-          title="wmp showreel"
-          src="https://player.vimeo.com/video/252855772?background=1&autoplay=1&loop=1&byline=0&title=0"
-          frameborder="0"
-          webkitallowfullscreen
-          mozallowfullscreen
-          allowfullscreen
-        />
+        <client-only>
+          <vimeo-player
+            ref="player"
+            :video-id="252855772"
+            :autoplay="true"
+            :options="{
+              background: 1,
+              autoplay: 1,
+              loop: 'true',
+              byline: 0,
+              title: 0
+            }"
+            @play="vimeoPlaying"
+          />
+        </client-only>
         <div ref="videoBackground" class="video-background">
           <img
             :src="html.sections.page_hero.videoBackground.url"
@@ -71,7 +77,6 @@
 </template>
 
 <script>
-import Player from '@vimeo/player';
 import Prismic from 'prismic-javascript';
 import { initApi, generatePageData } from '@/prismic.config';
 
@@ -98,30 +103,13 @@ export default {
     };
   },
   mounted() {
-    this.initVimeoPlayer();
-
     $(window).on('scroll', () => {
       this.animateOnScroll();
     });
   },
   methods: {
-    initVimeoPlayer() {
-      // https://github.com/vimeo/player.js#onevent-string-callback-function-void
-      const iframe = this.$refs.heroVideo;
-      const player = new Player(iframe);
-      player.on('loaded', () => {
-        // console.log('video loaded');
-      });
-
-      player.ready().then(() => {
-        // console.log('video ready');
-        $(this.$refs.videoBackground).fadeOut();
-        // console.log($b);
-      });
-
-      // player.getVideoId().then(function(id) {
-      // console.log('video id:', id);
-      // });
+    vimeoPlaying() {
+      $(this.$refs.videoBackground).hide();
     },
     animateOnScroll() {
       if ($("[class*='do-anim']").length > 0) {
