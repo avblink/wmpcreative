@@ -1,6 +1,16 @@
 div.wrapper-small {
     max-width: 780px;
+    
+    @media all and (max-width: 1200px) {
+        width: 720px;
+    }
+    
+    @media all and (max-width: 1024px) {
+        width: 680px;
+        max-width: calc(100% - 60px);
+    }
 }
+
 .center {
     display: flex;
     justify-content: center;
