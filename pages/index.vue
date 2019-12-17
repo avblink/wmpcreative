@@ -22,7 +22,15 @@
       <div class="text-wrapper">
         <h1>{{ html.sections.page_hero.title }}</h1>
         <h2>{{ html.sections.page_hero.subTitle }}</h2>
-        <a :href="html.sections.page_hero.link.url">Showreel</a>
+
+        <div class="showreel">
+          <a :href="html.sections.page_hero.link.url" class="circle">
+            <fa icon="play" />
+          </a>
+          <strong>
+            Showreel
+          </strong>
+        </div>
       </div>
     </section>
 

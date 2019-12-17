@@ -60,7 +60,8 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/apollo',
-    'nuxt-compress'
+    'nuxt-compress',
+    'nuxt-fontawesome'
   ],
   /*
    ** Axios module configuration
@@ -75,6 +76,17 @@ export default {
       }
     }
   },
+
+  fontawesome: {
+    component: 'fa',
+    imports: [
+      {
+        set: '@fortawesome/free-solid-svg-icons',
+        icons: ['faPlay']
+      }
+    ]
+  },
+
   /*
    ** Build configuration
    */
