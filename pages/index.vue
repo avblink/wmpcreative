@@ -66,6 +66,7 @@
 import Player from '@vimeo/player';
 import Prismic from 'prismic-javascript';
 import { initApi, generatePageData } from '@/prismic.config';
+import $ from 'jquery';
 
 export default {
   async asyncData(context) {
@@ -103,13 +104,13 @@ export default {
 
       player.ready().then(() => {
         // console.log('video ready');
-        window.jQuery(this.$refs.videoBackground).fadeOut();
+        $(this.$refs.videoBackground).fadeOut();
         // console.log($b);
       });
 
-      player.getVideoId().then(function(id) {
-        // console.log('video id:', id);
-      });
+      // player.getVideoId().then(function(id) {
+      // console.log('video id:', id);
+      // });
     }
   },
   head() {
