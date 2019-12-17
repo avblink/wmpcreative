@@ -65,6 +65,10 @@ body.page-home {
             flex-basis: 50%;
             overflow: hidden;
 
+            @media all and (max-width: 680px) {
+                flex-basis: 100%;
+            }
+
             &::before {
                 content: ' ';
                 position: absolute;
@@ -148,6 +152,10 @@ body.page-home {
         background: $black1;
         padding: 200px 20px;
         margin-top: 100px;
+
+        h3 {
+            text-align: center;
+        }
 
         img {
             margin-top: 86px;
