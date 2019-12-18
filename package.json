@@ -20,6 +20,7 @@
     "graphql": "^14.5.8",
     "jquery": "^3.4.1",
     "jquery-visible": "^1.2.0",
+    "lightcase": "^2.5.0",
     "node-sass": "^4.13.0",
     "nuxt": "^2.0.0",
     "nuxt-fontawesome": "^0.4.0",

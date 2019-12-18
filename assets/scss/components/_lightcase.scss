@@ -1,0 +1,32 @@
+#lightcase-overlay {
+    background: #000000;
+}
+
+
+
+a.lightcase-icon-close {
+    &:hover {
+
+        &::after,
+        &::before {
+            background-color: #cccccc;
+        }
+    }
+
+    &::after,
+    &::before {
+        content: "" !important;
+        position: absolute;
+        width: 26px;
+        height: 2px;
+        right: 3px;
+        top: 10px;
+        transform: translateY(0) rotate(45deg);
+        background-color: #ffffff;
+        transition: all 0.2s ease;
+    }
+
+    &::before {
+        transform: translateY(0) rotate(-45deg);
+    }
+}

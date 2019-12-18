@@ -30,7 +30,12 @@
         <h2>{{ html.sections.page_hero.subTitle }}</h2>
 
         <div class="showreel">
-          <a :href="html.sections.page_hero.link.url" class="circle">
+          <a
+            :href="html.sections.page_hero.link.url"
+            class="circle"
+            data-rel="lightcase"
+            @click.prevent="showShowReel"
+          >
             <fa icon="play" />
           </a>
           <strong>
@@ -110,6 +115,22 @@ export default {
   methods: {
     vimeoPlaying() {
       $(this.$refs.videoBackground).hide();
+    },
+    showShowReel(event) {
+      lightcase.start({
+        href: event.target.href,
+        overlayOpacity: 0.9,
+        maxWidth: 1300,
+        maxHeight: 1100,
+        shrinkFactor: 1,
+        liveResize: true,
+        fullScreenModeForMobile: true,
+        iframe: {
+          width: 854,
+          height: 480,
+          allowfullscreen: 1
+        }
+      });
     },
     animateOnScroll() {
       if ($("[class*='do-anim']").length > 0) {
