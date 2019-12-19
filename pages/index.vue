@@ -94,9 +94,7 @@ export default {
     } else {
       html = await initApi().then(api => {
         return api
-          .query(
-            Prismic.Predicates.at('document.type', 'page', { uid: 'home' })
-          )
+          .query(Prismic.Predicates.at('my.page.uid', 'home'))
           .then(response => {
             return generatePageData('homepage', response.results[0].data);
           });
