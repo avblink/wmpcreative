@@ -1,0 +1,6 @@
+$mt-list: 60 100;
+@each $px in $mt-list {
+    .mt-#{$px} {
+      margin-top: #{$px}px;
+    }
+}
