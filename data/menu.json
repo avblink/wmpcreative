@@ -39,7 +39,21 @@
     },
     {
         "label": "About",
-        "url":"/overview"
+        "url":"/overview",
+        "children": [
+            {
+                "label": "Overview",
+                "url": "/overview"
+            },
+            {
+                "label": "Meet our team",
+                "url": "/overview/meet-our-team"
+            },
+            {
+                "label": "Work for us",
+                "url": "/overview/work-for-us"
+            }
+        ]
     }
     ,
     {
