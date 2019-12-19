@@ -2,9 +2,9 @@
   <div id="layout">
     <header :class="{ 'menu-is-open': menuIsOpen }">
       <div id="logo" class="logo-left text-light">
-        <a href="/">
+        <nuxt-link to="/">
           <img id="light-logo" src="~static/img/logo.png" alt="wmp logo" />
-        </a>
+        </nuxt-link>
       </div>
 
       <div class="menu-actions">
