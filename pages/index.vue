@@ -29,7 +29,7 @@
         <h1>{{ html.sections.page_hero.title }}</h1>
         <h2>{{ html.sections.page_hero.subTitle }}</h2>
 
-        <div class="showreel">
+        <div class="showreel mt-60">
           <a
             :href="html.sections.page_hero.link.url"
             class="circle"
@@ -61,10 +61,10 @@
     </section>
 
     <div class="center">
-      <a href="/work" class="button white view-all">View All</a>
+      <a href="/work" class="button white view-all mt-100">View All</a>
     </div>
 
-    <section class="brands center">
+    <section class="brands center mt-100">
       <h3 class="do-anim" v-html="html.sections.text[1].text" />
       <img
         v-for="item in html.sections.image_gallery[1]"
@@ -76,7 +76,7 @@
     </section>
 
     <div class="center">
-      <a href="/contact" class="button white contact">Get in touch</a>
+      <a href="/contact" class="button white contact mt-100">Get in touch</a>
     </div>
   </div>
 </template>

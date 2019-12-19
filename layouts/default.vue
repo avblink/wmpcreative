@@ -66,7 +66,7 @@ export default {
       this.menuIsOpen = !this.menuIsOpen;
     },
     toggleNav(event) {
-      const $link = window.jQuery(event.currentTarget);
+      const $link = $(event.currentTarget);
       const $sibling = $link.siblings('ul:first');
       const $parent = $link.parent('li');
 

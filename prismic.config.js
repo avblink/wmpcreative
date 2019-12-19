@@ -31,7 +31,8 @@ export const linkResolver = doc => {
 
 export const generatePageData = (documentType, data) => {
   switch (documentType) {
-    case 'homepage': {
+    case 'homepage':
+    case 'work': {
       const sections = {};
 
       data.body.map(slice => {

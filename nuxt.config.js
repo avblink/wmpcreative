@@ -110,9 +110,7 @@ export default {
     routes() {
       const homepage = initApi().then(api => {
         return api
-          .query(
-            Prismic.Predicates.at('document.type', 'page', { uid: 'home' })
-          )
+          .query(Prismic.Predicates.at('my.page.uid', 'home'))
           .then(response => {
             return response.results.map(payload => {
               return {
@@ -122,8 +120,20 @@ export default {
             });
           });
       });
+      const work = initApi().then(api => {
+        return api
+          .query(Prismic.Predicates.at('my.page.uid', 'work'))
+          .then(response => {
+            return response.results.map(payload => {
+              return {
+                route: '/work',
+                payload
+              };
+            });
+          });
+      });
 
-      return Promise.all([homepage]).then(values => {
+      return Promise.all([homepage, work]).then(values => {
         return [...values[0]];
       });
     }
