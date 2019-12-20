@@ -61,7 +61,7 @@
     </section>
 
     <div class="center">
-      <a href="/work" class="button white view-all mt-100">View All</a>
+      <alink url="/work" class="button white view-all mt-100">View All</alink>
     </div>
 
     <section class="brands center mt-100">
@@ -76,7 +76,9 @@
     </section>
 
     <div class="center">
-      <a href="/contact" class="button white contact mt-100">Get in touch</a>
+      <alink url="/contact" class="button white contact mt-100"
+        >Get in touch
+      </alink>
     </div>
   </div>
 </template>

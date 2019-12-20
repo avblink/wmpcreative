@@ -17,7 +17,9 @@
     </section>
 
     <div class="center">
-      <a href="/contact" class="button white contact mt-100">Get in touch</a>
+      <alink url="/contact" class="button white contact mt-100"
+        >Get in touch
+      </alink>
     </div>
   </div>
 </template>
