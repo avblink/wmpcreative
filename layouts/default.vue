@@ -2,9 +2,9 @@
   <div id="layout">
     <header :class="{ 'menu-is-open': menuIsOpen }">
       <div id="logo" class="logo-left text-light">
-        <nuxt-link to="/">
+        <alink url="/">
           <img id="light-logo" src="~static/img/logo.png" alt="wmp logo" />
-        </nuxt-link>
+        </alink>
       </div>
 
       <div class="menu-actions">
@@ -17,13 +17,13 @@
         <nav id="main-nav" class="underline fade">
           <ul id="primary">
             <li v-for="item in mainMenu" :key="item.url" class="menu-item">
-              <a :href="item.url" @click="toggleNav($event)">
+              <alink :url="item.url" @click.native="toggleNav($event)">
                 {{ item.label }}
-              </a>
+              </alink>
 
               <ul v-if="item.children" class="sub-menu">
                 <li v-for="subItem in item.children" :key="subItem.url">
-                  <a :href="subItem.url">{{ subItem.label }}</a>
+                  <alink :url="subItem.url">{{ subItem.label }}</alink>
                 </li>
               </ul>
             </li>
@@ -48,6 +48,7 @@
 <script>
 // import menusQuery from '~/apollo/queries/menus';
 import mainMenu from '~/data/menu.json';
+
 export default {
   data() {
     return {
