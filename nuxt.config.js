@@ -45,7 +45,11 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~plugins/jquery.client.js', '~plugins/vimeo-player.client.js'],
+  plugins: [
+    '~plugins/jquery.client.js',
+    '~plugins/vimeo-player.client.js',
+    '~plugins/components.js'
+  ],
   /*
    ** Nuxt.js dev-modules
    */
