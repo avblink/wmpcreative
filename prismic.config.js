@@ -61,7 +61,7 @@ export const generatePageData = (documentType, data) => {
             slice.items.map(item => {
               gallery.push({
                 image: item.gallery_image,
-                link: item.link,
+                link: item.relative_link,
                 linkTitle: PrismicDOM.RichText.asText(item.link_title)
               });
             });

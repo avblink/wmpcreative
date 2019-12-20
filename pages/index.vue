@@ -49,15 +49,15 @@
       <div class="wrapper-small" v-html="html.sections.text[0].text" />
     </section>
     <section class="gallery">
-      <a
+      <alink
         v-for="item in html.sections.image_gallery[0]"
         :key="item.id"
-        :href="item.link.url"
+        :url="item.link"
         class="item do-anim"
       >
         <img :src="item.image.url" :alt="item.linkTitle" />
         <h3 class="title">{{ item.linkTitle }}</h3>
-      </a>
+      </alink>
     </section>
 
     <div class="center">
